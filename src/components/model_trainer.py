@@ -45,10 +45,10 @@ class ModelTrainer:
                 "AdaBoost Regressor": AdaBoostRegressor(),
                 "Greadient Boosting": GradientBoostingRegressor(),
             }
-            
+               
             logging.info("Evaluating Models")
             
-            model_report:dict = evaluate_models(X_train=X_train, y_train=y_train, X_test = X_test, y_test = y_test,
+            model_report = evaluate_models(X_train=X_train, y_train=y_train, X_test = X_test, y_test = y_test,
                                                models=models)
             
             logging.info("Models Evaluated")
