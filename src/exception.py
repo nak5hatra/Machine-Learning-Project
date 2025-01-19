@@ -1,16 +1,22 @@
 import sys
 from src.logger import logging
 
-def error_message_details(error, error_detail:sys):
-    _,_, exc_tb = error_detail.exc_info()
-    file_name = exc_tb.tb_frame.f_code.co_filename
-    line_number = exc_tb.tb_lineno
+'''
+Here we are building the custom exception method
+'''
 
-    error_message = f"Error occured in python script name {file_name} line number {line_number} error message {str(error)}"
+def error_message_details(error, error_detail:sys):    
+    _,_, exc_tb = error_detail.exc_info()               
+    file_name = exc_tb.tb_frame.f_code.co_filename      
+    line_number = exc_tb.tb_lineno                      
+
+    error_message = f"Error occured in python script name {file_name} line number {line_number} error message {str(error)}"    
     
     return error_message
     
-    
+'''
+building the CustomException class in order to handle the custom exception in code.
+'''
 class CustomException(Exception):
     def __init__(self, error_message, error_detail:sys):
         super().__init__(error_message)
